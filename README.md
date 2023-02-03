@@ -21,3 +21,10 @@ String parentWindowId=(String) it.next();
 String childWindowId=(String) it.next();
 driver.switchTo().window(childWindowId);
 ```
+
+## Screenshot of WebElement
+```java
+//Getscreenshot of element
+File screenshotFile=driver.findElement(By.cssSelector("img.lnXdpd")).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(screenshotFile, new File("logo.png"));
+```
