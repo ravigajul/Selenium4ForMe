@@ -28,3 +28,10 @@ driver.switchTo().window(childWindowId);
 File screenshotFile=driver.findElement(By.cssSelector("img.lnXdpd")).getScreenshotAs(OutputType.FILE);
 FileUtils.copyFile(screenshotFile, new File("logo.png"));
 ```
+## Capturing Height & Width of element
+```java
+//get Height & Width
+int height=driver.findElement(By.cssSelector("img.lnXdpd")).getRect().getHeight();
+int width=driver.findElement(By.cssSelector("img.lnXdpd")).getRect().getWidth();
+System.out.println(height + "-->" + width);
+```
