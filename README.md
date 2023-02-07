@@ -52,3 +52,11 @@ if (state.equalsIgnoreCase("complete")){
 	System.out.println("The page is not fully loaded.");
 	}
 ```
+## Checking the ready state of a web page
+```java
+JavascriptExecutor js = (JavascriptExecutor) driver;
+String state= (String) js.executeScript("return document.readyState");
+if (state.equalsIgnoreCase("complete")){
+//do something
+}
+```
