@@ -35,3 +35,20 @@ int height=driver.findElement(By.cssSelector("img.lnXdpd")).getRect().getHeight(
 int width=driver.findElement(By.cssSelector("img.lnXdpd")).getRect().getWidth();
 System.out.println(height + "-->" + width);
 ```
+
+## Click on a SVG element 
+```java
+driver.get("https://petdiseasealerts.org/forecast-map/");
+driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+JavascriptExecutor js = (JavascriptExecutor) driver;
+String state= (String) js.executeScript("return document.readyState");
+if (state.equalsIgnoreCase("complete")){
+	driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[src*='iframe']")));
+	WebElement eleCalifornia = driver.findElement(By.cssSelector("g#california"));
+	js.executeScript("arguments[0].scrollIntoView(true);", eleCalifornia);
+	eleCalifornia.click();
+}else {
+	System.out.println("The page is not fully loaded.");
+	}
+```
